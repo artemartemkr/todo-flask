@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Все задания
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Все задания</h1>
+
+    {% if article|length > 0  %}
+        {% for el in  article %}
+        <div class="alert alert-info">
+            <h2>{{ el.title }}</h2>
+            <p><b>Дата: {{ el.created_at.date() }}</b></p>
+            <a href="/posts/{{ el.id }}" class="btn btn-outline-info">Подробнее</a>
+        </div>
+        {% endfor %}
+    {% else %}
+    <p>Заданий пока нет</p>
+    {% endif %}
+</div>
+{% endblock %}
